@@ -1,15 +1,14 @@
 ﻿using GameShop.Domain.Enums;
 
-namespace GameShop.Domain.Entities
+namespace GameShop.Application.Dtos.GameDtos
 {
-    public class Game
+    public class GameDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; } = string.Empty;
-        public int Stock { get; set; } = 0;
+        public int StockLevel { get; set; }
         public decimal Price { get; set; }
         public Platform Platform { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }
