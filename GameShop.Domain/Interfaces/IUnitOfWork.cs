@@ -4,9 +4,11 @@ namespace GameShop.Domain.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IGameRepository GameRepository { get; }
-        IUserRepository UserRepository { get; }
-        IShoppingCartRepository ShoppingCartRepository { get; }
-        IOrderRepository OrderRepository { get; }
+        IGameRepository Games { get; }
+        IUserRepository Users { get; }
+        IShoppingCartRepository ShoppingCarts { get; }
+        IOrderRepository Orders { get; }
+
+        Task<int> CompleteAsync();
     }
 }
