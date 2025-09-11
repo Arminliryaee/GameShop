@@ -17,8 +17,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GameShop.Application\GameShop.Application.csproj" />
-    <ProjectReference Include="..\GameShop.Domain\GameShop.Domain.csproj" />
     <ProjectReference Include="..\GameShop.Infrastecture\GameShop.Infrastecture.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

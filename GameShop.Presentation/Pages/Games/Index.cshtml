@@ -1,0 +1,39 @@
+﻿@page 
+@model GameShop.Presentation.Pages.Games.IndexModel
+@{
+    ViewData["Title"] = "Game List";
+}
+
+<h1>Game List</h1>
+
+<p>
+    <a asp-page="Create">Create New Game</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Platform</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model.Games)
+        {
+            <tr>
+                <td>@game.Name</td>
+                <td>@game.Platform</td>
+                <td>@game.Price.ToString("C")</td>
+                <td>@game.StockLevel</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@game.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@game.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@game.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

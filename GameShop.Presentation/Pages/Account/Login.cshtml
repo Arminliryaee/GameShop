@@ -1,0 +1,41 @@
+﻿@page
+@model GameShop.Presentation.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="LoginDto.Username"></label>
+                    <input asp-for="LoginDto.Username" class="form-control" />
+                    <span asp-validation-for="LoginDto.Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LoginDto.Password"></label>
+                    <input asp-for="LoginDto.Password" class="form-control" />
+                    <span asp-validation-for="LoginDto.Password" class="text-danger"></span>
+                </div>
+                <br />
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                </div>
+                <div>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

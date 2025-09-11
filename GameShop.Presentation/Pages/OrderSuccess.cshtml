@@ -1,0 +1,12 @@
+﻿@page
+@model GameShop.Presentation.Pages.OrderSuccessModel
+@{
+    ViewData["Title"] = "Order Successful";
+}
+
+<div class="text-center">
+    <h1>Thank you for your order!</h1>
+    <p>Your order has been placed successfully.</p>
+    <p>Your order number is: <strong>@Model.OrderId</strong></p>
+    <p><a asp-page="/Index">Continue Shopping</a></p>
+</div>
