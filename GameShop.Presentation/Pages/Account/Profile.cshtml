@@ -1,0 +1,87 @@
+﻿@page
+@model GameShop.Presentation.Pages.Account.ProfileModel
+@{
+    ViewData["Title"] = "User Profile";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Account Details</h4>
+        <hr />
+        <form method="post">
+            <input type="hidden" asp-for="UpdateUser.Id" />
+            <div class="form-group">
+                <label asp-for="UpdateUser.FirstName"></label>
+                <input asp-for="UpdateUser.FirstName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateUser.LastName"></label>
+                <input asp-for="UpdateUser.LastName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateUser.Email"></label>
+                <input asp-for="UpdateUser.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateUser.Phone"></label>
+                <input asp-for="UpdateUser.Phone" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateUser.Address"></label>
+                <input asp-for="UpdateUser.Address" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateUser.Age"></label>
+                <input asp-for="UpdateUser.Age" class="form-control" />
+            </div>
+            <hr />
+            <h5>Change Password</h5>
+            <div class="form-group">
+                <label asp-for="UpdateUser.OldPassword"></label>
+                <input asp-for="UpdateUser.OldPassword" class="form-control" type="password" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateUser.NewPassword"></label>
+                <input asp-for="UpdateUser.NewPassword" class="form-control" type="password" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateUser.ConfirmNewPassword"></label>
+                <input asp-for="UpdateUser.ConfirmNewPassword" class="form-control" type="password" />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h4>Order History</h4>
+        <hr />
+        @if (Model.OrderHistory.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.OrderHistory)
+                    {
+                        <tr>
+                            <td>@order.Id</td>
+                            <td>@order.TotalValue.ToString("C")</td>
+                            <td>@order.OrderState</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>You have no orders yet.</p>
+        }
+    </div>
+</div>

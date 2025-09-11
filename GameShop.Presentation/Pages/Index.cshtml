@@ -18,7 +18,10 @@
                     <p class="card-text">@game.Description</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="#" class="btn btn-sm btn-outline-secondary">Add to Cart</a>
+                            <form method="post" asp-page-handler="AddToCart">
+                                <input type="hidden" name="gameId" value="@game.Id" />
+                                <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                            </form>
                         </div>
                         <small class="text-muted">@game.Price.ToString("C")</small>
                     </div>
