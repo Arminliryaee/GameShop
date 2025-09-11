@@ -5,5 +5,6 @@ namespace GameShop.Domain.Interfaces.Repositories
 {
     public interface IShoppingCartRepository : IGenericRepository<ShoppingCart>
     {
+        Task<ShoppingCart> GetByUserIdAsync(Guid userId);
     }
 }

@@ -2,6 +2,7 @@
 using GameShop.Domain.Interfaces.Repositories;
 using GameShop.Infrastructure.Persistence;
 using GameShop.Infrastructure.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameShop.Infrastecture.Persistance.Repositories
 {
@@ -11,5 +12,11 @@ namespace GameShop.Infrastecture.Persistance.Repositories
         {
 
         }
+        public async Task<ShoppingCart> GetByUserIdAsync(Guid userId) => 
+            await _dbSet
+                .Include(s => s.Items) 
+                .ThenInclude(i => i.Game)
+                .FirstOrDefaultAsync(c => c.UserId == userId);
+        
     }
 }
