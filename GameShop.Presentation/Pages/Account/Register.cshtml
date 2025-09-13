@@ -32,6 +32,21 @@
                 <input asp-for="RegisterDto.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="RegisterDto.ConfirmPassword" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="RegisterDto.Age"></label>
+                <input asp-for="RegisterDto.Age" class="form-control" />
+                <span asp-validation-for="RegisterDto.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisterDto.Address"></label>
+                <input asp-for="RegisterDto.Address" class="form-control" />
+                <span asp-validation-for="RegisterDto.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisterDto.Phone"></label>
+                <input asp-for="RegisterDto.Phone" class="form-control" />
+                <span asp-validation-for="RegisterDto.Phone" class="text-danger"></span>
+            </div>
             <br />
             <button type="submit" class="btn btn-primary">Register</button>
         </form>

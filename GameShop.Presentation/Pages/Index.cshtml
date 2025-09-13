@@ -4,29 +4,135 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to GameShop</h1>
+<div class="main-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 align-self-center">
+                <div class="caption header-text">
+                    <h6>Welcome to GameShop</h6>
+                    <h2> START YOUR JOURNEY </h2>
+                    <p>Welcome to the best place to find your next favorite game. Browse our collection and get the best prices.</p>
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" />
+                            <button role="button">Search Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-2">
+                <div class="right-image">
+                    <img src="assets/images/banner-image.jpg" alt="">
+                    <span class="price">$22</span>
+                    <span class="offer">-40%</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    @foreach (var game in Model.Games)
-    {
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3>@game.Name</h3>
-                    <p class="card-text">@game.Description</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <form method="post" asp-page-handler="AddToCart">
+<div class="section trending">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h6>Trending</h6>
+                    <h2>Trending Games</h2>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="main-button">
+                    <a asp-page="/Games/Index">View All</a>
+                </div>
+            </div>
+            @foreach (var game in Model.Games)
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="item">
+                        <div class="thumb">
+                            <a asp-page="/Games/Details" asp-route-id="@game.Id"><img src="assets/images/trending-01.jpg" alt=""></a>
+                            <span class="price">@game.Price.ToString("C")</span>
+                        </div>
+                        <div class="down-content">
+                            <span class="category">@game.Platform</span>
+                            <h4>@game.Name</h4>
+                            <form method="post" asp-page-handler="AddToCart" class="add-to-cart-form">
                                 <input type="hidden" name="gameId" value="@game.Id" />
-                                <button type="submit" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                                <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-bag"></i></button>
                             </form>
                         </div>
-                        <small class="text-muted">@game.Price.ToString("C")</small>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="shop">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-heading">
+                                <h6>Our Shop</h6>
+                                <h2>Go Pre-Order Buy & Get Best <em>Prices</em> For You!</h2>
+                            </div>
+                            <p>Explore our full range of games and find your next adventure.</p>
+                            <div class="main-button">
+                                <a asp-page="/Games/Index">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-2 align-self-end">
+                <div class="subscribe">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-heading">
+                                <h6>NEWSLETTER</h6>
+                                <h2>Get Up To $100 Off Just By <em>Subscribing</em> to our Newsletter!</h2>
+                            </div>
+                            <div class="search-input">
+                                <form id="subscribe" action="#">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your email...">
+                                    <button type="submit">Subscribe Now</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    }
+    </div>
 </div>
+
+@section Scripts {
+    <style>
+        .item .down-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .add-to-cart-form {
+            display: inline-block;
+        }
+
+        .add-to-cart-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .add-to-cart-btn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+}
