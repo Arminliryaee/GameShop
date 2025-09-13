@@ -11,5 +11,11 @@ namespace GameShop.Infrastructure.Persistence
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Seed();
+        }
     }
 }

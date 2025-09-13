@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameShop.Infrastecture.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250911091554_init")]
+    [Migration("20250913050754_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -78,6 +78,58 @@ namespace GameShop.Infrastecture.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Games");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("e2c0a5f0-6e7c-4b3e-9d7c-3d5d5d5d5d5d"),
+                            Description = "Action-adventure game",
+                            IsDeleted = false,
+                            Name = "The Last of Us Part II",
+                            Platform = 0,
+                            Price = 59.99m,
+                            Stock = 100
+                        },
+                        new
+                        {
+                            Id = new Guid("f3d1b6a0-7f8d-4c4f-af8d-4e6e6e6e6e6e"),
+                            Description = "Action role-playing video game",
+                            IsDeleted = false,
+                            Name = "Cyberpunk 2077",
+                            Platform = 5,
+                            Price = 49.99m,
+                            Stock = 150
+                        },
+                        new
+                        {
+                            Id = new Guid("a4e2c7b0-8a9e-4d5a-ba9e-5f7f7f7f7f7f"),
+                            Description = "Action-adventure game by Santa Monica Studio",
+                            IsDeleted = false,
+                            Name = "God of War Ragnarök",
+                            Platform = 1,
+                            Price = 69.99m,
+                            Stock = 80
+                        },
+                        new
+                        {
+                            Id = new Guid("b5f3d8c0-9baf-4e6b-cb0f-6a8a8a8a8a8a"),
+                            Description = "First-person shooter game",
+                            IsDeleted = false,
+                            Name = "Halo Infinite",
+                            Platform = 2,
+                            Price = 55.50m,
+                            Stock = 120
+                        },
+                        new
+                        {
+                            Id = new Guid("c6a4e9d0-ab0a-4f7c-dc1a-7b9b9b9b9b9b"),
+                            Description = "Action-adventure game",
+                            IsDeleted = false,
+                            Name = "The Legend of Zelda: Tears of the Kingdom",
+                            Platform = 4,
+                            Price = 65.00m,
+                            Stock = 200
+                        });
                 });
 
             modelBuilder.Entity("GameShop.Domain.Entities.Order", b =>
@@ -188,6 +240,34 @@ namespace GameShop.Infrastecture.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("c0a8e3b0-4c5a-4b1e-8b3b-1b3b3b3b3b3b"),
+                            Address = "123 Admin Street",
+                            Age = 30,
+                            Email = "admin@gameshop.com",
+                            FirstName = "Admin",
+                            HashPassword = "$2a$11$UGrgL.f6fM9XhIuCoJ9j4.d5Vw/xJg3jKl.S.Q/m.E/p8c.w0bI.W",
+                            LastName = "User",
+                            Phone = "09120000001",
+                            UserRole = 0,
+                            Username = "admin"
+                        },
+                        new
+                        {
+                            Id = new Guid("d1b9f4e0-5d6b-4c2d-9c6b-2c4c4c4c4c4c"),
+                            Address = "456 Customer Avenue",
+                            Age = 25,
+                            Email = "customer@email.com",
+                            FirstName = "Test",
+                            HashPassword = "$2a$11$wK1x.Z.f8gL9i.o.J.lK3u.d.VwXyZg.hIjKlMnOpQr.sTu.vW",
+                            LastName = "Customer",
+                            Phone = "09120000002",
+                            UserRole = 2,
+                            Username = "customer"
+                        });
                 });
 
             modelBuilder.Entity("GameShop.Domain.Entities.CartItem", b =>
